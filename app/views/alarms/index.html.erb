@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Alarm Clock</h1>
+    <p class="lead">This is a simple application to help my wife and I get up in the morning. If you would
+    like to see the source code, click <a href="https://github.com/cincospenguinos/AlarmClockRails" target="_blank">here</a>.</p>
+  </div>
+</div>
+
+<div class="container" id="alarm_space">
+  <h1>Alarms</h1>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Playlist</th>
+          <th>Play time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @alarms.each do |alarm| %>
+          <tr>
+            <td><%= alarm.name %></td>
+            <td><%= alarm.playlist.name %></td>
+            <td><%= alarm.play_time.to_a[2] %>:<%= alarm.play_time.to_a[1] %></td>
+            <td><button class="btn btn-default"><%= link_to 'Edit', edit_alarm_path(alarm) %></button></td>
+            <td><button class="btn btn-warning"><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <h1>Add Alarm</h1>
+  <div class="row">
+    <%= render 'form', alarm: @alarm %>
+  </div>
+</div>
+<br/>
