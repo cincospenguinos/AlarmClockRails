@@ -1,0 +1,2 @@
+module SoundingAlarmHelper
+end

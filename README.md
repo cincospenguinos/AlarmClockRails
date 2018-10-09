@@ -3,8 +3,9 @@
 
 ## TODO
 
-- [ ] CRUD alarms
+- [x] CRUD alarms
 - [ ] Application plays music when alarm is set
 - [ ] CRUD playlists and assign alarms to them
-- [ ] Snooze/turn off alarm on web page
+- [ ] Add songs to playlists
+- [ ] Snooze/turn off alarms on web page
 - [ ] Whenever grabs alarms and checks them and plays them

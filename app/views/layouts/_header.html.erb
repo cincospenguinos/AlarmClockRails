@@ -2,7 +2,9 @@
   <div class="container">
   	<div class="row">
   		<div class="col-sm-8">
-  			<!-- TODO: Check to see if an alarm is playing, and if so, provide buttons here to turn them off -->
+        <% unless SOUNDING_ALARM.nil? %>
+          <%= button_to 'Stop Alarm', { controller: 'sounding_alarm', action: 'shutdown', method: 'post'}, { :class => 'btn btn-danger' } %>
+        <% end %>
   		</div>
   		<div class="col-sm-4">
   			<ul class="nav navbar-nav navbar-right">

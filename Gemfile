@@ -34,14 +34,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'whenever'
+# Use Sucker Punch to handle playing music
+gem 'sucker_punch', '~> 2.0'
+
+# Use whenever to determine when to spin up a new job
+gem 'whenever', require: false
 
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'mini_racer'
 
-# jquery for bootstrap and frontend shnanigans
+# jquery for bootstrap and frontend shenanigans
 gem 'jquery-rails'
 
 # fonts for bootstrap stuff
