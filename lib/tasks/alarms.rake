@@ -1,3 +1,5 @@
+require 'resque/tasks'
+
 namespace :alarms do
 
   desc "Checks to see if an alarm needs to be started, and starts it if necessary"
@@ -5,11 +7,8 @@ namespace :alarms do
 
   	Alarm.all.each do |alarm|
   		if alarm.is_time? && SOUNDING_ALARM.nil?
-        # TODO: This
-        
-  			# Get the playlist associated with this alarm and grab all of its songs
-
-  			# Play each song to completion
+        SOUNDING_ALARM = 'sounding'
+        SoundAlarmJob.set(queue: 'sounding_alarm').perform_now(alarm)
   		end
 
   		puts Dir.pwd

@@ -34,8 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use Sucker Punch to handle playing music
-gem 'sucker_punch', '~> 2.0'
+# Use Resque
+gem 'resque'
 
 # Use whenever to determine when to spin up a new job
 gem 'whenever', require: false
