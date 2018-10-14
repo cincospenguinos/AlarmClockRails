@@ -21,6 +21,19 @@ class PlaylistsController < ApplicationController
   def edit
   end
 
+  # POST /alarms/1/add
+  def add_song
+    byebug
+    @playlist = Playlist.find(params['id'])
+    new_song = Song.create!(file_name: song_params[:song].original_filename, playlist: @playlist)
+    new_song.song.attach(song_params[:song])
+    
+    respond_to do |format|
+      format.html { redirect_to @playlist }
+      format.json { render :show, status: :created, location: @playlist }
+    end
+  end
+
   # POST /playlists
   # POST /playlists.json
   def create
@@ -69,6 +82,10 @@ class PlaylistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playlist_params
-      params.require(:playlist).permit(:name, :alarm_id)
+      params.require(:playlist).permit(:name, :alarm_id, songs: [])
+    end
+
+    def song_params
+      params.require(:playlist).permit(:song)
     end
 end

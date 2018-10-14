@@ -1,0 +1,11 @@
+<!-- Add a song to some playlist -->
+<%= form_for(@playlist, local: true, url: add_song_path, method: 'post' ) do |form| %>
+	<div class="field">
+		<%= form.label :song %>
+		<%= form.file_field :song %>
+	</div>
+
+	<div class="action">
+		<%= form.submit %>
+	</div>
+<% end %>

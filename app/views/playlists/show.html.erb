@@ -1,14 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @playlist.name %>
-</p>
-
-<p>
-  <strong>Alarm:</strong>
-  <%= @playlist.alarm_id %>
-</p>
-
-<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
-<%= link_to 'Back', playlists_path %>
+<div class="container">
+	<div class="row"><h2><%= @playlist.name %></h2></div>
+	<div class="row">
+		<% if @playlist.songs.size == 0 %>
+			<h3>No songs found!</h3>
+		<% else %>
+			<h3>Songs on Playlist</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr><td>Song Name</td></tr>
+				</thead>
+				<tbody>
+					<% @playlist.songs.each do |song| %>
+						<tr>
+							<td><%= song.file_name %></td>
+							<td>TODO: Button to remove here</td>
+						</tr>
+					<% end %>	
+				</tbody>
+			</table>
+		<% end %>
+	</div>
+	<div class="row">
+		<h3>Add Song to Playlist</h3>
+		<%= render 'add_song', playlist: @playlist %>
+	</div>
+	<div class="row">
+		<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+		<%= link_to 'Back', playlists_path %>
+	</div>
+</div>
