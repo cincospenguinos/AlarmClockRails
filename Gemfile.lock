@@ -246,6 +246,7 @@ DEPENDENCIES
   mini_racer
   puma (~> 3.11)
   rails (~> 5.2.1)
+  redis (~> 4.0)
   resque
   sass-rails (~> 5.0)
   selenium-webdriver

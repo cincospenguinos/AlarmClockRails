@@ -2,7 +2,8 @@
   <div class="container">
   	<div class="row">
   		<div class="col-sm-8">
-        <% unless SOUNDING_ALARM.nil? %>
+        <!-- TODO: Check if an alarm is sounding in the queue -->
+        <% if false %>
           <%= button_to 'Stop Alarm', { controller: 'sounding_alarm', action: 'shutdown', method: 'post'}, { :class => 'btn btn-danger' } %>
         <% end %>
   		</div>

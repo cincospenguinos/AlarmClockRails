@@ -1,5 +1,6 @@
 # README
 
+* Requires mplayer, and only for Ubuntu
 
 ## TODO
 
@@ -10,3 +11,8 @@
 - [ ] Remove songs from playlist
 - [ ] Snooze/turn off alarms on web page
 - [ ] Whenever grabs alarms and checks them and plays them
+
+## Other things to add
+
+* Add configuration option to determine how to play a song from the DB
+	* This makes extending to other operating systems a lot easier

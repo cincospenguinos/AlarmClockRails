@@ -21,17 +21,21 @@ class PlaylistsController < ApplicationController
   def edit
   end
 
-  # POST /alarms/1/add
+  # POST /playlists/1/add
   def add_song
-    byebug
     @playlist = Playlist.find(params['id'])
-    new_song = Song.create!(file_name: song_params[:song].original_filename, playlist: @playlist)
+    new_song = Song.find_or_create_by(file_name: song_params[:song].original_filename, playlist: @playlist)
     new_song.song.attach(song_params[:song])
     
     respond_to do |format|
       format.html { redirect_to @playlist }
       format.json { render :show, status: :created, location: @playlist }
     end
+  end
+
+  # DELETE /playlists/1/remove
+  def remove_song
+    # TODO: Allow removal of songs
   end
 
   # POST /playlists
@@ -75,6 +79,7 @@ class PlaylistsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_playlist
       @playlist = Playlist.find(params[:id])
