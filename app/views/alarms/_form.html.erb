@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :play_time %>
-    <%= form.time_select :play_time %>
+    <%= form.time_select :play_time, default: Time.now %>
   </div>
 
   <div class="actions">

@@ -14,8 +14,8 @@ require 'test_helper'
 
 class AlarmTest < ActiveSupport::TestCase
   setup do
-  	@should_sound = Alarm.create!(playlist: Playlist.first, name: 'Should sound', play_time: Time.now)
-  	@not_sound = Alarm.create!(playlist: Playlist.first, name: 'Should not sound', play_time: Time.now + 1.hour)
+  	@should_sound = Alarm.create!(playlist: Playlist.first, name: 'Should sound', play_time: Time.zone.now)
+  	@not_sound = Alarm.create!(playlist: Playlist.first, name: 'Should not sound', play_time: Time.zone.now + 1.hour)
   end
 
   teardown do

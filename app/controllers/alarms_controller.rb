@@ -26,6 +26,7 @@ class AlarmsController < ApplicationController
   # POST /alarms.json
   def create
     @alarm = Alarm.new(alarm_params)
+    @alarm.adjust_time = true
 
     respond_to do |format|
       if @alarm.save
