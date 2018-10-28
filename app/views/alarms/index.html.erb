@@ -24,7 +24,7 @@
           <% time_array = alarm.play_time.to_a %>
           <tr>
             <td><%= alarm.name %></td>
-            <td><%= alarm.playlist.name %></td>
+            <td><%= alarm.playlist.name if alarm.playlist %></td>
             <td><%= time_array[2] %>:<%= format('%02d', time_array[1]) %></td>
             <td><button class="btn btn-default"><%= link_to 'Edit', edit_alarm_path(alarm) %></button></td>
             <td><button class="btn btn-warning"><%= link_to 'Destroy', alarm, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>

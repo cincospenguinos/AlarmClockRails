@@ -17,10 +17,10 @@ class AlarmsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create alarm" do
     assert_difference('Alarm.count') do
-      post alarms_url, params: { alarm: { name: @alarm.name, play_time: @alarm.play_time } }
+      post alarms_url, params: { alarm: { name: random_string, play_time: @alarm.play_time, playlist_id: Playlist.first.id } }
     end
 
-    assert_redirected_to alarm_url(Alarm.last)
+    assert_redirected_to alarms_url
   end
 
   test "should show alarm" do
@@ -34,8 +34,8 @@ class AlarmsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update alarm" do
-    patch alarm_url(@alarm), params: { alarm: { name: @alarm.name, play_time: @alarm.play_time } }
-    assert_redirected_to alarm_url(@alarm)
+    patch alarm_url(@alarm), params: { alarm: { name: @alarm.name, play_time: @alarm.play_time, playlist: Playlist.first } }
+    assert_response :success
   end
 
   test "should destroy alarm" do

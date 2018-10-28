@@ -6,12 +6,12 @@ namespace :alarms do
   task check: :environment do
 
   	Alarm.all.each do |alarm|
+      puts alarm.is_time?
   		if alarm.is_time? && SOUNDING_ALARM.nil?
-        SOUNDING_ALARM = 'sounding'
-        SoundAlarmJob.set(queue: 'sounding_alarm').perform_now(alarm)
+        puts 'Sounding alarm!'
+        SOUNDING_ALARM = 'sounding_alarm'
+        SoundAlarmJob.set(queue: SOUNDING_ALARM).perform_now(alarm)
   		end
-
-  		puts Dir.pwd
   	end
   end
 

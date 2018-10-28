@@ -17,7 +17,7 @@ class PlaylistsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create playlist" do
     assert_difference('Playlist.count') do
-      post playlists_url, params: { playlist: { alarm_id: @playlist.alarm_id, name: @playlist.name } }
+      post playlists_url, params: { playlist: { name: random_string } }
     end
 
     assert_redirected_to playlist_url(Playlist.last)
@@ -34,8 +34,8 @@ class PlaylistsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update playlist" do
-    patch playlist_url(@playlist), params: { playlist: { alarm_id: @playlist.alarm_id, name: @playlist.name } }
-    assert_redirected_to playlist_url(@playlist)
+    patch playlist_url(@playlist), params: { playlist: { name: @playlist.name } }
+    assert_response :success
   end
 
   test "should destroy playlist" do
