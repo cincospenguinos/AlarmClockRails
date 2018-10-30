@@ -15,7 +15,7 @@
 					<% @playlist.songs.each do |song| %>
 						<tr>
 							<td><%= song.file_name %></td>
-							<td>TODO: Button to remove here</td>
+							<td><button class="btn btn-warning"><%= link_to 'Remove Song', remove_song_path, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
 						</tr>
 					<% end %>	
 				</tbody>

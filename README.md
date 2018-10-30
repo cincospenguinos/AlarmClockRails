@@ -8,7 +8,7 @@
 - [x] Application plays music when alarm is set
 - [x] CRUD playlists and assign alarms to them
 - [x] Add songs to playlists
-- [ ] Remove songs from playlist
+- [x] Remove songs from playlist
 - [x] Snooze/turn off alarms on web page
 - [x] Whenever grabs alarms and checks them and plays them
 
