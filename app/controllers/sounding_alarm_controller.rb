@@ -2,10 +2,11 @@ class SoundingAlarmController < ApplicationController
 
 	# POST /shutdown
 	def shutdown
-		if SOUNDING_ALARM
+		if Alarm.has_one_sounding?
 			Rails.logger.info('Shutting down the alarm...')
-			Resque::Job.destroy(SOUNDING_ALARM, 'SoundAlarm')
-			SOUNDING_ALARM = nil
+			sounding_alarm = Alarm.where.not(song_pid: nil).first
+			`kill #{sounding_alarm.song_pid}`
+			sounding_alarm.update!(is_sounding: false, song_pid: nil)
 		end
 	end
 end

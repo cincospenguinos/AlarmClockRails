@@ -3,8 +3,10 @@
 # Table name: alarms
 #
 #  id          :integer          not null, primary key
+#  is_sounding :boolean
 #  name        :string
 #  play_time   :time
+#  song_pid    :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  playlist_id :integer

@@ -3,7 +3,7 @@
   	<div class="row">
   		<div class="col-sm-8">
         <!-- TODO: Check if an alarm is sounding in the queue -->
-        <% if false %>
+        <% if Alarm.has_one_sounding? %>
           <%= button_to 'Stop Alarm', { controller: 'sounding_alarm', action: 'shutdown', method: 'post'}, { :class => 'btn btn-danger' } %>
         <% end %>
   		</div>
