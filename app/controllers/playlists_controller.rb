@@ -35,7 +35,14 @@ class PlaylistsController < ApplicationController
 
   # DELETE /playlists/1/remove
   def remove_song
-    # TODO: Allow removal of songs
+    @playlist = Playlist.find(params['id'])
+    song = Song.find_by(playlist: @playlist)
+    song.destroy!
+
+    respond_to do |format|
+      format.html { redirect_to @playlist }
+      format.json { render :show, status: :created, location: @playlist }
+    end
   end
 
   # POST /playlists
